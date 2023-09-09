@@ -10,7 +10,7 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import Loader from "./Loader";
-import ErrorComponent from "./ErrorComponent";
+import ErrorComponent from "./ErrorComponent";  //If any error occurs during the time of data fetching, this ErrorComponent will be shown.
 
 const Exchanges = () => {
     const [exchanges, setExchanges] = useState([]);
@@ -36,7 +36,7 @@ const Exchanges = () => {
 
     return (
         <Container maxW={"container.xl"}>
-            {loading ? (
+            {loading ? (   //if loading is true it show loader , if false then it will show the ,<ExchangeCard/>
                 <Loader />
             ) : (
                 <>
