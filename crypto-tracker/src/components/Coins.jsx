@@ -21,7 +21,7 @@ const Coins = () => {
     setLoading(true);
   };
 
-  const btns = new Array(132).fill(1);
+  const btns = new Array(132).fill(1); //For page
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -37,7 +37,7 @@ const Coins = () => {
       }
     };
     fetchCoins();
-  }, [currency, page]);
+  }, [currency, page]); //on changing currency and page refetch the data
 
   if (error) return <ErrorComponent message={"Error While Fetching Coins"} />;
 
@@ -47,7 +47,7 @@ const Coins = () => {
         <Loader />
       ) : (
         <>
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
+          <RadioGroup value={currency} onChange={setCurrency} p={"8"}> 
             <HStack spacing={"4"}>
               <Radio value={"inr"}>INR</Radio>
               <Radio value={"usd"}>USD</Radio>
