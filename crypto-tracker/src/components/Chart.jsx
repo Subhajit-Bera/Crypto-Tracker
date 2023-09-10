@@ -1,9 +1,28 @@
-// https://www.chartjs.org/docs/3.9.1/  ->chart.js documentation
+// https://www.chartjs.org/docs/4.4.0/migration/v3-migration.html ->chart.js documentation
+// https://www.npmjs.com/package/react-chartjs-2/v/5.2.0  ->react-chart-js-2 documentation
 
 import React from 'react';
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS,CategoryScale, LineController, LineElement, PointElement, LinearScale, Title ,Tooltip,Legend} from "chart.js";
-ChartJS.register(CategoryScale,LineController, LineElement, PointElement, LinearScale, Title,Tooltip,Legend);
+import {
+  Chart as ChartJS, CategoryScale,
+  LineController,
+  LineElement, PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend
+} from "chart.js";
+
+
+ChartJS.register(
+  CategoryScale,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend);
 
 const Chart = ({ arr = [], currency, days }) => {
   const prices = [];
@@ -16,11 +35,11 @@ const Chart = ({ arr = [], currency, days }) => {
   }
 
   const data = {
-    labels: date,
+    labels: date,  //x-axis
     datasets: [
       {
         label: `Price in ${currency}`,
-        data: prices,
+        data: prices, //y-axis
         borderColor: "rgb(255,99,132)",
         backgroundColor: "rgba(255,99,132,0.5)",
       },
@@ -29,7 +48,7 @@ const Chart = ({ arr = [], currency, days }) => {
 
 
   return (
-    <Line
+    <Line   //react-chart-js component  for line graph
       options={{
         responsive: true,
       }}
