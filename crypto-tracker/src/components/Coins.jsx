@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import axios from "axios";
+import axios from "axios"; //for fetching data
 import { server } from "../index";
 import { Button, Container, HStack, Radio, RadioGroup } from "@chakra-ui/react";
 import Loader from "./Loader";
@@ -21,7 +21,7 @@ const Coins = () => {
     setLoading(true);
   };
 
-  const btns = new Array(132).fill(1); //For page
+  const btns = new Array(132).fill(1); //For pagination
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -54,8 +54,11 @@ const Coins = () => {
               <Radio value={"eur"}>EUR</Radio>
             </HStack>
           </RadioGroup>
+          
 
-          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+          {/* DISPLAY COIN CARDS */}
+        {/* justifyContent={"space-evenly"}: when screen width became lesser it will give equal space between coin cards  */}
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}> 
             {coins.map((i) => (
               <CoinCard
                 id={i.id}
@@ -68,7 +71,8 @@ const Coins = () => {
               />
             ))}
           </HStack>
-
+            
+            {/* PAGE SWITCH BUTTON */}
           <HStack w={"full"} overflowX={"auto"} p={"8"}>
             {btns.map((item, index) => (
               <Button
