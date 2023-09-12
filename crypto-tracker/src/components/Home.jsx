@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Image, Text } from "@chakra-ui/react";
 import btcSrc from "../assets/btc.png";
 import { motion } from "framer-motion";
+// https://chakra-ui.com/getting-started/with-framer
 
 
 const Home = () => {
@@ -22,7 +23,7 @@ const Home = () => {
       >
         <Image
           w={"full"}
-          h={"full"}
+          h={"80%"}
           objectFit={"contain"}
           src={btcSrc}
           filter={"grayscale(1)"}
@@ -36,7 +37,7 @@ const Home = () => {
         color={"whiteAlpha.700"}
         mt={"-20"}
       >
-        CryptoTracker
+        Crypto Tracker
       </Text>
     </Box>
   )

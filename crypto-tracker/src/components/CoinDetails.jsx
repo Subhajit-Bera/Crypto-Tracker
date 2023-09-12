@@ -43,45 +43,48 @@ const CoinDetails = () => {
 
   //Function for set days and fetch market_chart according to days
   const switchChartStats = (key) => {
-    switch (key) {
-      case "24h":
-        setDays("24h");
-        setLoading(true); //When it will fetch data again , then it will set to false automatically 
-        break;
-      case "7d":
-        setDays("7d");
-        setLoading(true);
-        break;
-      case "14d":
-        setDays("14d");
-        setLoading(true);
-        break;
-      case "30d":
-        setDays("30d");
-        setLoading(true);
-        break;
-      case "60d":
-        setDays("60d");
-        setLoading(true);
-        break;
-      case "200d":
-        setDays("200d");
-        setLoading(true);
-        break;
-      case "1y":
-        setDays("365d");
-        setLoading(true);
-        break;
-      case "max":
-        setDays("max");
-        setLoading(true);
-        break;
+    if (days !== key) {
+      switch (key) {
+        case "24h":
+          setDays("24h");
+          setLoading(true); //When it will fetch data again , then it will set to false automatically 
+          break;
+        case "7d":
+          setDays("7d");
+          setLoading(true);
+          break;
+        case "14d":
+          setDays("14d");
+          setLoading(true);
+          break;
+        case "30d":
+          setDays("30d");
+          setLoading(true);
+          break;
+        case "60d":
+          setDays("60d");
+          setLoading(true);
+          break;
+        case "200d":
+          setDays("200d");
+          setLoading(true);
+          break;
+        case "1y":
+          setDays("365d");
+          setLoading(true);
+          break;
+        case "max":
+          setDays("max");
+          setLoading(true);
+          break;
 
-      default:
-        setDays("24h");
-        setLoading(true);
-        break;
+        default:
+          setDays("24h");
+          setLoading(true);
+          break;
+      }
     }
+
   };
 
   useEffect(() => {
@@ -133,7 +136,7 @@ const CoinDetails = () => {
               </Button>
             ))}
           </HStack>
-          
+
           {/* CURRENCY */}
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <HStack spacing={"4"}>
@@ -146,7 +149,7 @@ const CoinDetails = () => {
 
           {/* alignItems by default "center" for Vstack so we set it to "flex-start"*/}
           <VStack spacing={"4"} p="16" alignItems={"flex-start"}>
-            
+
 
             {/* DISPLAY LAST UPDATED TIME */}
             {/* alignSelf="center" -> to display Last update in center  */}
@@ -166,7 +169,7 @@ const CoinDetails = () => {
 
 
             {/* SHOW STATISTICS OF THE COIN (last 24hr increase/decrease) */}
-            {/* https://chakra-ui.com/docs/components/stat */} 
+            {/* https://chakra-ui.com/docs/components/stat */}
             <Stat>
               <StatLabel>{coin.name}</StatLabel>
               <StatNumber>
@@ -184,7 +187,7 @@ const CoinDetails = () => {
                 {coin.market_data.price_change_percentage_24h}%
               </StatHelpText>
             </Stat>
-            
+
 
             {/* DISPLAY MARKET RANK OF THE COIN*/}
             <Badge
@@ -192,9 +195,9 @@ const CoinDetails = () => {
               bgColor={"blackAlpha.800"}
               color={"white"}
             >
-            {`#${coin.market_cap_rank}`}
+              {`#${coin.market_cap_rank}`}
             </Badge>
-            
+
             {/* For CustomBar check below */}
             <CustomBar
               high={`${currencySymbol}${coin.market_data.high_24h[currency]}`}
@@ -243,7 +246,7 @@ const CustomBar = ({ high, low }) => (
     {/* https://chakra-ui.com/docs/components/progress */}
     <Progress value={50} colorScheme={"teal"} w={"full"} />
     <HStack justifyContent={"space-between"} w={"full"}>
-      <Badge  colorScheme={"red"} >{low}</Badge>
+      <Badge colorScheme={"red"} >{low}</Badge>
       <Text fontSize={"sm"}>24H Range</Text>
       <Badge colorScheme={"green"}>{high}</Badge>
     </HStack>
