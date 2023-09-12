@@ -18,7 +18,7 @@ const Footer = () => {
             letterSpacing={"widest"}
             textAlign={["center", "left"]}
           >
-            hjhflksjksrektlrkektoreostio ierstsmpoirt werpmpfi wdmpeirpowfi duwiurpomnopweidpm fwmr
+            We provide a comprehensive platform that offers latest prices, trends, and news about cryptocurrencies. Manage your crypto investments efficiently with our real-time market_chart.Our real-time data ensures you are always informed.
           </Text>
         </VStack>
 

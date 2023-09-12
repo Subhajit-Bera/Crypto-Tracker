@@ -1,5 +1,6 @@
 import React from 'react'
 import { Alert, AlertIcon } from "@chakra-ui/react";
+// https://chakra-ui.com/docs/components/alert
 
 const ErrorComponent = ({message}) => {
   return (

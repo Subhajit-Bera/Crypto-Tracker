@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"; //for fetching data
 import { server } from "../index";
 import { Button, Container, HStack, Radio, RadioGroup } from "@chakra-ui/react";
@@ -13,6 +13,7 @@ const Coins = () => {
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("inr");
 
+  //Making an constant to show currency symbol
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
 
@@ -47,18 +48,19 @@ const Coins = () => {
         <Loader />
       ) : (
         <>
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}> 
+          {/* https://chakra-ui.com/docs/components/radio/usage */}
+          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <HStack spacing={"4"}>
               <Radio value={"inr"}>INR</Radio>
               <Radio value={"usd"}>USD</Radio>
               <Radio value={"eur"}>EUR</Radio>
             </HStack>
           </RadioGroup>
-          
+
 
           {/* DISPLAY COIN CARDS */}
-        {/* justifyContent={"space-evenly"}: when screen width became lesser it will give equal space between coin cards  */}
-          <HStack wrap={"wrap"} justifyContent={"space-evenly"}> 
+          {/* justifyContent={"space-evenly"}: when screen width became lesser it will give equal space between coin cards in order to provide responsiveness */}
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {coins.map((i) => (
               <CoinCard
                 id={i.id}
@@ -71,8 +73,8 @@ const Coins = () => {
               />
             ))}
           </HStack>
-            
-            {/* PAGE SWITCH BUTTON */}
+
+          {/* PAGE SWITCH BUTTON */}
           <HStack w={"full"} overflowX={"auto"} p={"8"}>
             {btns.map((item, index) => (
               <Button

@@ -26,14 +26,22 @@ ChartJS.register(
   Legend);
 
 const Chart = ({ arr = [], currency, days }) => {
+  // console.log(arr);
+  //arr: 0th index represent date in milisecond 
+  //arr: 1th index represent price
+
   const prices = [];
   const date = [];
 
   for (let i = 0; i < arr.length; i++) {
+    //for 24hr we need time and for days we need date
     if (days === "24h") date.push(new Date(arr[i][0]).toLocaleTimeString());
     else date.push(new Date(arr[i][0]).toLocaleDateString());
     prices.push(arr[i][1]);
   }
+
+  // console.log(date);
+  // console.log(prices);
 
   const data = {
     labels: date,  //x-axis
