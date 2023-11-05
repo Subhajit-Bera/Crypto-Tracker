@@ -12,19 +12,18 @@ const Footer = () => {
     >
       <Stack direction={["column", "row"]} h={"full"} alignItems={"center"}>
         <VStack w={"full"} alignItems={["center", "flex-start"]}>
-          <Text fontWeight={"bold"}>About Us</Text>
+          <Text fontSize={"xl"} fontWeight={"bold"}>About Us</Text>
           <Text
-            fontSize={"sm"}
+            fontSize={"md"}
             letterSpacing={"widest"}
             textAlign={["center", "left"]}
           >
-            hjhflksjksrektlrkektoreostio ierstsmpoirt werpmpfi wdmpeirpowfi duwiurpomnopweidpm fwmr
+            We provide a comprehensive platform that offers latest prices, trends, and news about cryptocurrencies. 
           </Text>
+
+          <Text fontSize={"sm"}  alignSelf={["center","flex-end"]}>Made with ❤️ by Subha</Text>
         </VStack>
 
-        <VStack>
-          <Text>Founder</Text>
-        </VStack>
       </Stack>
     </Box>
   )
