@@ -1,7 +1,7 @@
 # Crypto-Tracker
 • Created a Web application which provide information about all Cryptocurrencies and top Exchanges with market chart.</br>
 • Used ReactJS for implementing user interface.</br>
-• Used **[Coingecko API](https://www.coingecko.com/en/api/documentation)** to fetch realtime data.</br> 
+• Used **[Coingecko API](https://www.coingecko.com/en/api/documentatio)** to fetch realtime data.</br> 
 ### Library Used : 
 * Chakra-UI -> Creating Interface</br> 
 * axios ->fetch data from API</br> 
@@ -10,4 +10,4 @@
 * react-icons -> Used different icons</br>
 * framer-motion -> For animation
  
-### Hosted Link : https://crypto-tracker-mdjf7r663-subhajit108chs-gmailcom.vercel.app/
+### [Hosted Link](https://crypto-tracker-nine-self.vercel.app/)
